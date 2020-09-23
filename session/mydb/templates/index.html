@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="contents" id="section1">
+        <div class="header">
+            <p>LIKELION</p>
+            <p>Try it!</p>
+        </div>
+        <div class="table-container">
+            <table class="table-contents" style="padding:10px; width:100%;">
+                <tr>
+                    <th>제목</th>
+                    <th>내용</th>
+                </tr>
+                    <!--이곳에 데이터를 띄워보세요  -->
+            </table>
+        </div>
+        <div><a href="#section2">>> START <<</a></div>
+    </div>
+    <div class="contents" id="section2">
+        <div class="wrap">
+            <div class="header">
+                <p>
+                    DATA
+                </p>
+            </div>
+            <form  action="{% url 'put_data'%}" method="post">
+                {% csrf_token %}
+                <div class="form-container">
+                    
+                    <input type="text"name="post_title" placeholder="post title">
+                    <input type="text"name="post_content"placeholder="post content">
+                </div>
+                <input type="submit" value="제출">
+            </form>
+            
+        </div>
+        
+    </div>
+        
+    
+    
+</body>
+</html>
